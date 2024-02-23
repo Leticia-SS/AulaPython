@@ -8,7 +8,6 @@
 # Em comparativo de tamanho, as tuplas ocupam o menor espaço, pois não podem mudar, enquanto as listas que são mutáveis ocupam um espaço maior 
 # de memória, e por fim o dicionário ocupa muito espaço pois ele tem uma estrutura pesada de chave e valor, sendo ainda mutáveis.
 
-
 #Lista vazia
 
 lista = []
