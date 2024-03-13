@@ -1,0 +1,38 @@
+# Lidando com Strings em Python e suas várias formas
+#
+
+texto = 'Isso é uma String'
+texto2 = "Isso é uma string também"
+texto_longo = """Este é um texto
+um pouco mais longo e que 
+ocupa várias linhas"""
+texto_longo = '''Este é um texto
+um pouco mais longo e que 
+ocupa várias linhas'''
+aspas_dentro_texto = 'Ao usar "aspas" dentro de string, não pode coincidir com as que fecham a string'
+aspas_dentro_texto2 = "O oposto também funciona 'exemplo'"
+texto_triplo = """Outra forma de incluir "aspas" no texto"""
+outras = 'A palavra \'em aspas\' ficam com barras, usando o mesmo tipo de aspas dentro e fora'
+
+
+# Tipos
+# Int tranforma em Intergreter
+print(int('123'))
+
+print(int('123')+int('123'))
+# output 246
+
+# Não é possível concatenar inteiros com string utilizando o +, somente com uso de vírgula
+# Use .upper() ou .lower() para maiúscula ou minúscula
+# Método [:-1] ou [1:-3], ele começa a contar com o primeiro valor ele é a posição inicial, e o segundo é até quando, negativo ele remove
+
+# Método de formatação dinâmica, utilizando % (placeholder)
+
+meu_texto = 'Eu gosto de programar em %s' % 'Python'
+
+variavel = pizza
+texto_var = 'Eu gosto de %s' % variavel
+
+#Quando for número:
+
+int_texto = 'O %s custou %d' % ('bolo', 30)
