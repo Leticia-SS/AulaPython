@@ -30,7 +30,7 @@ print(int('123')+int('123'))
 
 meu_texto = 'Eu gosto de programar em %s' % 'Python'
 
-variavel = pizza
+variavel = 'pizza'
 texto_var = 'Eu gosto de %s' % variavel
 
 #Quando for número:
