@@ -200,3 +200,190 @@ else:
   print('A palavra não é um palíndromo')
 
 
+# 
+# Ímpares
+  
+for n in range(50):
+  if n%2 != 0:
+    print(n)
+
+
+#
+#
+
+paisA = 80000
+paisB = 200000
+ano = 0
+
+while paisA <= paisB:
+  paisA = paisA*1.03
+  paisB = paisB*1.015
+
+  ano += 1
+
+print(ano)
+
+
+#
+#
+
+num = input('Digite números separados por vírgula: ').split(',')
+print(num)
+
+
+#
+#
+
+numLista = []
+for _ in range(10):
+  num = int(input('Digite um número: '))
+  numLista.append(num)
+
+for index,numero in enumerate(numLista):
+  num = numero**2
+  numLista[index] = num
+
+soma = sum(numLista)
+print(soma)
+
+
+#
+#
+
+number = int(input('Insira um número inteiro: '))
+
+def calculo(x):
+  quadrado = x**2
+  raiz = x**(1/2)
+  return quadrado, raiz
+
+quadrado, raiz = calculo(number)
+
+print(f'\nNúmero: {number} \nQuadrado: {quadrado} \nRaíz: {raiz}')
+
+
+#
+#
+
+num1 = int(input('Insira o primeiro número: '))
+num2 = int(input('Insira o segundo número: '))
+
+def calculo(x,y):
+  sum = x+y
+  sub = x-y
+  mult = x*y
+  div = x/y
+  rest = x%y
+
+  return sum,sub,mult,div,rest
+
+sum,sub,mult,div,rest = calculo(num1,num2)
+
+print(f'\nSoma: {sum}\nSubtração: {sub}\nMultiplicação: {mult}\nDivisão: {div:.0f} com resto {rest}')
+
+
+#
+#
+
+def inclui_imposto(custo, taxa = 5):
+  total = custo + (custo*(taxa/100))
+  return total
+
+custo = int(input('Digite o custo do item: '))
+taxa = int(input('Digite a taxa em % (caso não possua, digite 0): '))
+
+if taxa == 0:
+  print(f'Valor do item: {inclui_imposto(custo)}')
+else:
+  print(f'Valor do item: {inclui_imposto(custo,taxa)}')
+
+
+#
+# Docstring função anterior
+
+""" Função para calcular o custo com taxa com valor já definido de taxa"""
+def inclui_imposto(custo, taxa = 5):
+  """ total do item, usando a taxa em porcentagem e dividindo por 100 """
+  total = custo + (custo*(taxa/100))
+  return total
+
+""" Requerindo ao usuário um valor de custo e taxa """
+custo = int(input('Digite o custo do item: '))
+taxa = int(input('Digite a taxa em % (caso não possua, digite 0): '))
+
+""" Se a taxa for 0 ela será sempre 5% portanto seu valor já é inputado na função """
+if taxa == 0:
+  print(f'Valor do item: {inclui_imposto(custo)}')
+else:
+  """ Se houver taxa, ela será substituida e calculada na função """
+  print(f'Valor do item: {inclui_imposto(custo,taxa)}')
+
+
+#
+#
+
+nome = list(input('Digite seu nome: ').upper())
+reverso = ''.join(reversed(nome))
+
+print(reverso)
+
+
+#
+# Formatar data sem biblioteca
+
+data = (input('Insira a data no formato 00/00/0000: ')).split("/")
+
+if len(data)==3:
+  day = data[0]
+  month = data[1]
+  year = data[2]
+
+  if len(day) == 2 and len(month) == 2 and len(year)==4:
+    if day.isdigit()==True and month.isdigit()==True and year.isdigit()==True:
+
+      day = int(day)
+      month = int(month)
+      year = int(year)
+
+      def date(mes,dia=day,ano=year):
+        print(f'{dia} de {mes} de {ano}')
+
+      if 0<day<=31 and 0<month<=12:
+        match month:
+          case 1:
+            date('Janeiro')
+          case 2:
+            date('Fevereiro')
+          case 3:
+            date('Março')
+          case 4:
+            date('Abril')
+          case 5:
+            date('Maio')
+          case 6:
+            date('Junho')
+          case 7:
+            date('Julho')
+          case 8:
+            date('Agosto')
+          case 9:
+            date('Setembro')
+          case 10:
+            date('Outubro')
+          case 11:
+            date('Novembro')
+          case 12:
+            date('Dezembro')
+          
+      else:
+        print('Dia ou mês inválido')
+    else:
+      print('Insira somente Números')
+  else:
+    print('Dados Inválidos')
+else:
+  print('Formato Incorreto')
+
+
+#
+#
