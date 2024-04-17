@@ -387,3 +387,214 @@ else:
 
 #
 #
+  
+string1 = input('Digite uma palavra: ')
+string2 = input('Digite outra palavra: ')
+
+def validar(x):
+  string = x.strip()
+
+  return string, len(string)
+
+string1, largura1 = validar(string1)
+string2, largura2 = validar(string2)
+
+if string1 == string2:
+  print(f'Primeira e Segunda palavras são iguais e a largura delas é: {largura1}')
+else:
+  print(f'A Primeira e Segunda palavra são diferentes, a primeira tem comprimento: {largura1}, e a segunda comprimento: {largura2}')
+
+#
+#
+  
+frase = list(input('Digite uma frase: ').lower())
+
+def contador():
+  branco = frase.count(' ')
+  A = frase.count('a')
+  E = frase.count('e')
+  I = frase.count('i')
+  O = frase.count('o')
+  U =  frase.count('u')
+
+  vogSum = A + E + I + O + U
+
+  print(f'Espaços em branco: {branco}\nVogais: {vogSum}')
+
+contador()
+
+#
+#
+
+num1 = float(input('Insira o primeiro valor: '))
+num2 = float(input('Insira o segundo valor: '))
+
+def Calculos(x,y):
+  sum = f'{x} + {y} = {(x)+(y)}'
+  sub = f'{x} - {y} = {(x)-(y)}'
+  mult = f'{x} - {y} = {((x)*(y)):.02f}'
+  if x==0:
+    div = f'{x} / {y} = 0'
+    divInt = f'{x} // {y} = 0'
+    rest = f'{x} % {y} = 0'
+  elif y==0:
+    div = 'Proibido Divisão por 0'
+    divInt = 'Proibido Divisão por 0'
+    rest = 'Proibida Divisão por 0'
+  else:
+    div = f'{x} / {y} = {(x)/(y)}'
+    divInt = f'{x} // {y} = {(x)//(y)}'
+    rest = f'{x} % {y} = {(x)%(y)}'
+
+  return sum, sub, mult, div, divInt, rest
+
+soma, subtr, multp, divi, diviInt, resto = Calculos(num1,num2)
+
+operacao = int(input('Escolha uma das operações digitando o número correspondente:\n1 - Soma\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Divisão Inteira\n6 - Resto da Divisão\n Número:  '))
+
+match(operacao):
+  case 1:
+    print(soma)
+  case 2:
+    print(subtr)
+  case 3:
+    print(multp)
+  case 4:
+    print(divi)
+  case 5:
+    print(diviInt)
+  case 6:
+    print(resto)
+  case _:
+    print('Escolha uma operação válida')
+
+#
+#
+  
+salary = float(input('Digite o seu salário: '))
+
+def newSalary(value):
+  if value <= 1500:
+    value = value * 1.2
+    percentage = '20%'
+    return value,percentage
+  elif 1500 < value <= 2000:
+    value = value * 1.15
+    percentage = '15%'
+    return value,percentage
+  else:
+    value = value * 1.05
+    percentage = '5%'
+    return value,percentage
+
+newSalary, percentage = newSalary(salary)
+
+print(f'\nSalário antes do reajuste: R${salary:.02f}\nPercentual de aumento: {percentage}\nAumento: R${(newSalary - salary):.02f}\nSalário com reajuste: R${(newSalary):.02f}')
+
+
+#
+#
+
+numero=1
+lista = []
+
+while numero<=10:
+  multp = 3 * numero
+  lista.append(multp)
+  numero += 1
+
+print(lista)
+for num in lista:
+      print(f'3 x {num} = {num*3}')
+
+#
+#
+      
+import random
+inicio = input('\n----------------------------------\n       BEM-VINDO AO CRAPS\n\nAperte qualquer tecla para lançar os dados\n       ')
+dados=[random.randint(1,6) for _ in range(2)]
+
+def jogarDado(qnt=2,faces=6):
+  dados=[random.randint(1,faces) for _ in range(qnt)]
+  return sum(dados)
+
+dado = jogarDado()
+
+match dado:
+  case 7 | 11:
+    print(f'\n----------------------------------\n\nSOMA DOS DADOS: {dado}\n\n--------NATURAL POINT--------\n\n----------GAME WON----------')
+  case 2 | 3 | 12:
+    print(f'\n----------------------------------\n\nSOMA DOS DADOS: {dado}\n\n------------CRAPS------------\n\n----------GAME OVER----------')
+  case 4 | 5 | 6 | 8 | 9 | 10:
+    print(f'PONTUAÇÃO: {dado}')
+    confirm = int(input(f'\n----------------------------------\n\nUUHFF QUASE LÁ, MAS AINDA TEM CHANCE\n\n     DESEJA CONTINUAR ? ? ? \n\nSEU PONTO ATUAL: {dado}\n\nPara ganhar deverá igualar soma dos dados a sua pontuação,\nBasta escolher a quantidade de dados a ser lançada\n e o número de faces, variando entre 3 a 12 ! ! !\n\n1- CONTINUAR\n2- SAIR\n\n= '))
+    ponto = dado
+    while confirm != 2:
+      quant = int(input('\nQuantidade de dados: '))
+      lados = int(input('Quantidade de lados: '))
+
+      novoDado = jogarDado(quant,lados)
+
+      match novoDado:
+        case 7:
+          print(f'\n----------------------------------\n\nPONTO: {ponto}\nPONTUAÇÃO ATUAL: {novoDado}\n\n----------GAME OVER----------')
+          break
+        case _:
+          if ponto == novoDado:
+            print(f'\n----------------------------------\n\nPONTO: {ponto}\nPONTUAÇÃO ATUAL: {novoDado}\n\n----------GAME WON----------')
+            break
+      confirm = int(input(f'\n----------------------------------\n\n     DESEJA CONTINUAR ? ? ? \n\nPONTO: {ponto}\nPONTUAÇÃO ATUAL: {novoDado}\n\n1- CONTINUAR\n2- SAIR\n\n= '))
+      print('\n\nBasta escolher a quantidade de dados a ser lançada\n e o número de faces, variando entre 3 a 12 ! ! !\n')
+
+
+#
+#
+
+frase = input('Digite uma palavra ou frase para verificar se é um palindromo: ')
+
+def palindromo(value):
+  normal = value
+  inverso = ''.join(reversed(value))
+  if (normal.replace(' ','')).upper()==(inverso.replace(' ','')).upper():
+    print(f'\nÉ um Palíndromo\n\nNormal: {normal}\nInvertido: {inverso}')
+  else:
+    print(f'\nNÃO é um Palíndromo\n\nNormal: {normal}\nInvertido: {inverso}')
+
+palindromo(frase)
+
+#
+#
+
+notas = []
+nota = float(input('Insira as notas para o registro (digite -1 para sair)\n== '))
+while nota!= -1:
+  notas.append(nota)
+  nota = float(input('== '))
+
+print(f'\nForam registradas {len(notas)} notas\n')
+
+for indx,n in enumerate(notas):
+  print(f'{n}', end=' | ')
+  print(f'\n\n' if indx == (len(notas)-1) else '', end='')
+
+for n in notas[::-1]:
+  print(f'{n}')
+
+media = sum(notas)/len(notas)
+
+print(f'\nSoma total: {sum(notas):.0f}\n')
+print(f'Média: {media:.02f}\n')
+
+acima = [x for x in notas if x>=media]
+print(f'Notas acima ou na média: {len(acima)}\n')
+abaixo = [x for x in notas if x<media]
+print(f'Notas abaixo da média: {len(abaixo)}\n')
+
+
+#
+#
+
+cubo = [(x+1)**3 for x in range(10)]
+for c in cubo:
+  print(f'{c}', end=' | ')
+     
